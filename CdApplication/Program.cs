@@ -1,4 +1,5 @@
 using System;
+using CdApplication.Data;
 using Microsoft.EntityFrameworkCore;
 
 namespace CdApplication
@@ -11,6 +12,11 @@ namespace CdApplication
 
             //MVC
             builder.Services.AddControllersWithViews();
+
+            builder.Services.AddDbContext<CdContext>(options =>
+            options.UseSqlite(builder.Configuration.GetConnectionString("DefaultDbConnection"))
+            );
+
             var app = builder.Build();
 
             //Statiska filer
