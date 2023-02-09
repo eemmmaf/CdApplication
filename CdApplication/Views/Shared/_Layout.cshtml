@@ -1,0 +1,51 @@
+﻿<!DOCTYPE html>
+<html lang="sv">
+<head>
+    <meta charset="UTF-8" />
+    <link rel="icon" href="/favicon.ico" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="~/css/styles.css" type="text/css" />
+    <title>CdApplication | @ViewData["Title"]</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@500&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <div class="pagecontainer">
+        <div class="wrapper">
+            <header>
+                <div class="flex-between">
+                    <div>
+                        <!--Logga-->
+
+                        <a asp-controller="Home" asp-action="Index">
+                            <img src="~/images/cdlogga.png" alt="" />
+                        </a>
+                    </div>
+                    <div>
+                        <!--Navigering-->
+                        <nav>
+                            <ul>
+
+                                <li> <a asp-controller="Cds" asp-action="Index">Alla CD</a></li>
+                                <li> <a asp-controller="Artists" asp-action="Index">Artister</a></li>
+                            </ul>
+                        </nav>
+                    </div>
+                </div>
+            </header>
+
+            <main>
+                @RenderSection("scripts", required: false)
+                @RenderBody()
+
+            </main>
+        </div>
+        <footer>
+            <p>Skapad av Emma Forslund</p>
+        </footer>
+    </div>
+</body>
+</html>

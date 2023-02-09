@@ -1,0 +1,39 @@
+﻿@model IEnumerable<CdApplication.Models.Artist>
+
+@{
+    ViewData["Title"] = "Alla artister";
+}
+
+<h1>Alla artister</h1>
+
+<p>
+    <a asp-action="Create">Lägg till</a>
+</p>
+
+<!--Div för att göra tabellen responsiv-->
+<div class="list">
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Name)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Name)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.ArtistId">Ändra</a> |
+                <a asp-action="Details" asp-route-id="@item.ArtistId">Detaljer</a> |
+                <a asp-action="Delete" asp-route-id="@item.ArtistId">Ta bort</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
+</div>

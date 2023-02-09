@@ -1,0 +1,27 @@
+﻿@model CdApplication.Models.Artist
+
+@{
+    ViewData["Title"] = "Ta bort artist";
+}
+
+<h1>Delete</h1>
+
+<p>Är du säker på att du vill ta bort?</p>
+<div>
+    <h3>Artist</h3>
+    <hr />
+    <dl>
+        <dt>
+            @Html.DisplayNameFor(model => model.Name)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Name)
+        </dd>
+    </dl>
+    
+    <form asp-action="Delete" class="blankForm">
+        <input type="hidden" asp-for="ArtistId" />
+        <input type="submit" value="Ta bort" class="btn btn-danger" /> |
+        <a asp-action="Index">Alla artister</a>
+    </form>
+</div>

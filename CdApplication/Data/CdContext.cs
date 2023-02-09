@@ -10,6 +10,9 @@ namespace CdApplication.Data
         
 
             public DbSet<Cd> Cd { get; set; }
+        
+
+            public DbSet<CdApplication.Models.Artist> Artist { get; set; } = default!;
     
     }
 }
