@@ -9,18 +9,25 @@ namespace CdApplication.Models
 
         public int Id { get; set; } //PK
 
+        //Titel
         [Required(ErrorMessage = "Titel måste fyllas i")]
         [Display(Name = "Titel")]
         public string? Title { get; set; }
 
+
+        //Beskrivning
         [Display(Name = "Beskrivning")]
         public string? Description { get; set; }
 
+
+        //Artist
         [Required]
         [Display(Name = "Artist")]
         public int ArtistId { get; set; } //FK
         public Artist? Artist { get; set; }
 
+
+        //Utgivetdatum
         [Required(ErrorMessage = "Välj utgivningsdatum")]
         [Display(Name = "Utgivet")]
         [DataType(DataType.Date)]
