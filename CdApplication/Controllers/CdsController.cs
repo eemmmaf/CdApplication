@@ -20,8 +20,24 @@ namespace CdApplication.Controllers
         }
 
         // GET: Cds
-        public async Task<IActionResult> Index()
+        public async Task<IActionResult> Index(string searchString)
         {
+
+            //Sökning
+            ViewData["CurrentFilter"] = searchString;
+
+            var cds = from s in _context.Cd
+                      .Include(s => s.Artist)
+                      select s;
+
+            if (!String.IsNullOrEmpty(searchString))
+            {
+                cds = cds.Where(s => s.Title.Contains(searchString));
+
+                //Returnerar albumet
+                return View(cds);
+            }
+
             var cdContext = _context.Cd.Include(c => c.Artist);
             return View(await cdContext.ToListAsync());
         }

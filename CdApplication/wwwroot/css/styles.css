@@ -219,7 +219,17 @@ dl{
     box-shadow: none;
 }
 
-.blankForm input[type="submit"]{
-    background-color: #2D232E;
-    color: white;
+    .blankForm input[type="submit"],
+    .search-form input[type="submit"] {
+        background-color: #2D232E;
+        color: white;
+    }
+
+/*Formulär för att söka*/
+.search-form {
+    background-color: transparent;
+    box-shadow: none;
+    max-width: 300px;
+    width: 100%;
+    margin: 0;
 }

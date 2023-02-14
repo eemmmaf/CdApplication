@@ -24,6 +24,7 @@ namespace CdApplication.Migrations
                         .HasColumnType("INTEGER");
 
                     b.Property<string>("Name")
+                        .IsRequired()
                         .HasColumnType("TEXT");
 
                     b.HasKey("ArtistId");
@@ -46,14 +47,39 @@ namespace CdApplication.Migrations
                     b.Property<string>("Description")
                         .HasColumnType("TEXT");
 
+                    b.Property<int>("LoanId")
+                        .HasColumnType("INTEGER");
+
                     b.Property<string>("Title")
+                        .IsRequired()
                         .HasColumnType("TEXT");
 
                     b.HasKey("Id");
 
                     b.HasIndex("ArtistId");
 
+                    b.HasIndex("LoanId");
+
                     b.ToTable("Cd");
+                });
+
+            modelBuilder.Entity("CdApplication.Models.Loan", b =>
+                {
+                    b.Property<int>("LoanId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("INTEGER");
+
+                    b.Property<string>("Fname")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("Lname")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
+
+                    b.HasKey("LoanId");
+
+                    b.ToTable("Loan");
                 });
 
             modelBuilder.Entity("CdApplication.Models.Cd", b =>
@@ -64,10 +90,23 @@ namespace CdApplication.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
+                    b.HasOne("CdApplication.Models.Loan", "Loan")
+                        .WithMany("Cd")
+                        .HasForeignKey("LoanId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
                     b.Navigation("Artist");
+
+                    b.Navigation("Loan");
                 });
 
             modelBuilder.Entity("CdApplication.Models.Artist", b =>
+                {
+                    b.Navigation("Cd");
+                });
+
+            modelBuilder.Entity("CdApplication.Models.Loan", b =>
                 {
                     b.Navigation("Cd");
                 });

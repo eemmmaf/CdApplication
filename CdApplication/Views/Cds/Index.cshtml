@@ -9,6 +9,15 @@
 <p>
     <a asp-controller="Cds" asp-action="Create">Lägg till ny </a>
 </p>
+    <!--Formulär för att söka-->
+    <form asp-action="Index" method="get" class="search-form">
+        <div class="form-actions no-color">
+            <p>
+                Sök efter namn: <input type="text" name="SearchString" value="@ViewData["CurrentFilter"]" />
+                <input type="submit" value="Sök" /> 
+            </p>
+        </div>
+    </form>
 <div class="list">
 <table class="table">
     <thead>

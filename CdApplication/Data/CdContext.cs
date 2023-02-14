@@ -13,6 +13,7 @@ namespace CdApplication.Data
         
 
             public DbSet<CdApplication.Models.Artist> Artist { get; set; } = default!;
+        
     
     }
 }
