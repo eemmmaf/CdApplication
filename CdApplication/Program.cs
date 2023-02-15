@@ -13,6 +13,7 @@ namespace CdApplication
             //MVC
             builder.Services.AddControllersWithViews();
 
+            //DbContext
             builder.Services.AddDbContext<CdContext>(options =>
             options.UseSqlite(builder.Configuration.GetConnectionString("DefaultDbConnection"))
             );
@@ -22,6 +23,7 @@ namespace CdApplication
             //Statiska filer
             app.UseStaticFiles();
 
+            //Routing
             app.UseRouting();
 
             //Skapar routing

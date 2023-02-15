@@ -26,12 +26,15 @@ namespace CdApplication.Controllers
             //Sökning
             ViewData["CurrentFilter"] = searchString;
 
+            //Hämtar CD och inkluderar artist 
             var cds = from s in _context.Cd
                       .Include(s => s.Artist)
                       select s;
 
+            //Kontroll att inte sökningen är tom
             if (!String.IsNullOrEmpty(searchString))
             {
+                //Hämtar album som innehåller artistens namn
                 cds = cds.Where(s => s.Title.Contains(searchString));
 
                 //Returnerar albumet

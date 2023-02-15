@@ -6,8 +6,8 @@ namespace CdApplication.Controllers
     {
         public IActionResult Index()
         {
+            //Startsida där text skrivs ut med ViewBag
             ViewBag.Start = "Välkommen till min CD-samling!";
-            //Startsida
             return View();
         }
     }

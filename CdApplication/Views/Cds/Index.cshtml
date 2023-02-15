@@ -6,59 +6,68 @@
 
 <h1>Alla CD-skivor</h1>
 
-<p>
-    <a asp-controller="Cds" asp-action="Create">Lägg till ny </a>
-</p>
-    <!--Formulär för att söka-->
-    <form asp-action="Index" method="get" class="search-form">
-        <div class="form-actions no-color">
-            <p>
-                Sök efter namn: <input type="text" name="SearchString" value="@ViewData["CurrentFilter"]" />
-                <input type="submit" value="Sök" /> 
-            </p>
-        </div>
-    </form>
+<div class="flex-index">
+    <div>
+        <!--Formulär för att söka-->
+        <form asp-action="Index" method="get" class="search-form">
+            <div class="form-actions no-color">
+                <p>
+                    Sök album<input type="text" name="SearchString" value="@ViewData["CurrentFilter"]" />
+                    <input type="submit" value="Sök" />
+                </p>
+            </div>
+        </form>
+    </div>
+
+    <!--Länk för att lägga till-->
+    <div>
+        <p>
+            <a asp-controller="Cds" asp-action="Create">Lägg till ny </a>
+        </p>
+    </div>
+</div>
 <div class="list">
-<table class="table">
-    <thead>
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.Title)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Description)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Artist)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.CreatedDate)
-            </th>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-@foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.Title)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Description)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Artist.Name)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.CreatedDate)
-            </td>
-            <td>
-                    <a asp-action="Edit" asp-route-id="@item.Id">Ändra</a> |
-                    <a asp-action="Details" asp-route-id="@item.Id">Detaljer</a> |
-                    <a asp-action="Delete" asp-route-id="@item.Id">Ta bort</a>
-            </td>
-        </tr>
-}
-    </tbody>
-</table>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.Title)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Description)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Artist)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.CreatedDate)
+                </th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Title)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Description)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Artist.Name)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.CreatedDate)
+                    </td>
+                    <td>
+                        <a asp-action="Edit" asp-route-id="@item.Id">Ändra</a> |
+                        <a asp-action="Details" asp-route-id="@item.Id">Detaljer</a> |
+                        <a asp-action="Delete" asp-route-id="@item.Id">Ta bort</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
 </div>

@@ -3,4 +3,14 @@
 }
 
 <h1>Startsida</h1>
+<div id="home">
 <p> @ViewBag.Start</p>
+<div class="flex-start">
+    <div>
+            <a asp-controller="Artists" asp-action="Index">Artister</a>
+    </div>
+    <div>
+            <a asp-controller="Cds" asp-action="Index">Alla CD</a>
+    </div>
+</div>
+</div>
