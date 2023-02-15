@@ -84,7 +84,8 @@ namespace CdApplication.Controllers
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["ArtistId"] = new SelectList(_context.Set<Artist>(), "ArtistId", "ArtistId", cd.ArtistId);
+            //Ändrat från ArtistId för att få ut namnet
+            ViewData["ArtistId"] = new SelectList(_context.Set<Artist>(), "Name", "Name", cd.ArtistId);
             return View(cd);
         }
 
@@ -101,7 +102,8 @@ namespace CdApplication.Controllers
             {
                 return NotFound();
             }
-            ViewData["ArtistId"] = new SelectList(_context.Set<Artist>(), "ArtistId", "ArtistId", cd.ArtistId);
+            //Ändrat till name från ArtistId
+            ViewData["ArtistId"] = new SelectList(_context.Set<Artist>(), "ArtistId", "Name", cd.ArtistId);
             return View(cd);
         }
 
@@ -137,7 +139,7 @@ namespace CdApplication.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["ArtistId"] = new SelectList(_context.Set<Artist>(), "ArtistId", "ArtistId", cd.ArtistId);
+            ViewData["ArtistId"] = new SelectList(_context.Set<Artist>(), "ArtistId", "Name", cd.ArtistId);
             return View(cd);
         }
 

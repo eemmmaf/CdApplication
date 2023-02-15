@@ -129,6 +129,17 @@ td {
     padding: 1rem;
 }
 
+tr:hover {
+    background-color: #df97ee;
+}
+/*Förkortat kolumnen med beskrivning*/
+.description {
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+    max-width: 3px;
+}
+
 form {
     max-width: 550px;
     width: 100%;
@@ -219,7 +230,7 @@ dl {
     box-shadow: none;
 }
 
-    .blankForm input[type="submit"]{
+    .blankForm input[type="submit"] {
         background-color: #2D232E;
         color: white;
     }
@@ -266,7 +277,14 @@ dl {
     text-align: center;
 }
 
-.flex-index{
+.flex-index {
     display: flex;
     justify-content: space-between;
+    align-items: baseline;
+    margin-bottom: 3rem;
+}
+
+/*Startsida*/
+#home{
+    text-align:center;
 }
